@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="resources/js/jquery-3.4.1.js"/>
+<script type="text/javascript">
+    $(function () {
+        $("#but").click(function () {
+            var user = {};
+            alert("hahah")
+            user.username = $("#username").val();
+            user.userpwd = $("#userpwd").val();
+            var formData = new FormData();
+            formData.append("userStr",JSON.stringify(user));
+            $.ajax({
+                url:"/mavenweb_war/hello/xixihello",
+                type:"GET",
+                data:formData,
+                dataType:"json",
+                contentType: false,
+                processData: false,
+                cache: false,
+                success:function (data) {
+                    if (data.success()){
+                        alert("提交成功")
+                    }else {
+                        alert("提交失败"+data.errMsg)
+                    }
+                }
+            });
+            return false;
+        });
+    });
+</script>
+<body>
+
+    <input type="text" id="username" name="账号"/>
+    <input type="password" id="userpwd" name="密码">
+    <input type="button" id="but">测试
+
+
+
+</body>
+
+<script type="text/javascript" src="resources/js/test.js" charset="UTF-8"/>
+</html>
