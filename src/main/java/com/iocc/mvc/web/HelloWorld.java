@@ -21,7 +21,7 @@ public class HelloWorld {
     @ResponseBody
     private Map<String, Object> getHello() {
         Map<String, Object> modleMap = new HashMap<String, Object>();
-
+        System.out.println("成功");
 
 
         return modleMap;
